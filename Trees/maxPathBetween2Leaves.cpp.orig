@@ -39,7 +39,11 @@ int maxPathSumUtil(Node *root){
 
 int main()
 {
+<<<<<<< HEAD
+    //int res=INT_MIN;
+=======
     
+>>>>>>> 8684bcddffca7d7d08e71a404f181a6285809f5a
 	struct Node *root=newNode(-10);
 	root->left=newNode(25);
 	root->right=newNode(6);
@@ -56,5 +60,9 @@ int main()
 	cout<<sum<<endl;
 	cout<<"Nodes on path are: ";
 	printMaxPath(root,sum);
+<<<<<<< HEAD
+	//cout<<"Max pathSum of the given binary tree is "<<res;
+=======
+>>>>>>> 8684bcddffca7d7d08e71a404f181a6285809f5a
 	return 0;
 }
