@@ -16,30 +16,30 @@ Node* newNode(int data)
 	return (node);
 }
 
-int maxPathSumUtil(Node *root, int &res)
-{
-	if (root==NULL) return 0;
-	if (!root->left && !root->right) return root->data;
-	
-	int ls = maxPathSumUtil(root->left, res);
-	int rs = maxPathSumUtil(root->right, res);
 
-	if (root->left && root->right)
-	{   
-	    res=max(res,ls+rs+root->data);
-		int temp=max(ls, rs)+root->data;
-		cout<<"for node = "<<root->data <<" Sum is = "<<temp<<" ls = "<<ls<<" rs = "<<rs<<endl;
-		return temp;
+bool printMaxPath(Node *root,int sum){
+
+	if(root==NULL)return (sum==0);
+	if(printMaxPath(root->left,sum-root->data)||printMaxPath(root->right,sum-root->data)){
+		cout<<root->data<<" ";
+		return true;
 	}
-    
-    int temp=(!root->left)?rs+root->data:ls+root->data; 
-	cout<< "for leaf = "<<root->data <<" Sum is = "<<temp<<endl;
-	return temp;
+	return false;
 }
+
+
+int maxPathSumUtil(Node *root){
+	
+	if(root==NULL)return 0;
+	if(root->left==NULL && root->right==NULL)return root->data;
+	return max(root->data+maxPathSumUtil(root->left),root->data+maxPathSumUtil(root->right));
+}
+
+
 
 int main()
 {
-    int res=INT_MIN;
+    //int res=INT_MIN;
 	struct Node *root=newNode(-10);
 	root->left=newNode(25);
 	root->right=newNode(6);
@@ -51,8 +51,11 @@ int main()
 	root->right->right=newNode(9);
 	root->right->right->right=newNode(0);
 	root->right->right->right->left=newNode(4);
-
-	maxPathSumUtil(root,res);
-	cout<<"Max pathSum of the given binary tree is "<<res;
+	
+	int sum=maxPathSumUtil(root);
+	cout<<sum<<endl;
+	cout<<"Nodes on path are: ";
+	printMaxPath(root,sum);
+	//cout<<"Max pathSum of the given binary tree is "<<res;
 	return 0;
 }
