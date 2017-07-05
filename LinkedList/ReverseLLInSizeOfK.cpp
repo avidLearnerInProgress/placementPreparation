@@ -2,6 +2,9 @@
 
 using namespace std;
 
+
+//refer mycodeschool for reverse function
+
 struct node
 {
     int data;
