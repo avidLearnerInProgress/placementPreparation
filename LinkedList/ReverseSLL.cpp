@@ -2,6 +2,10 @@
 
 using namespace std;
 
+
+//for this logic refer mycodeschool video lecture
+
+
 struct node
 {
 	int data;
