@@ -85,9 +85,7 @@ int main(){
 					cout<<z<<endl;
 			}	
 		}
-		
-		
-		
+			
 		while(!q1.empty()){
 			t1.push_back(q1.front());
 			q1.pop();
@@ -96,20 +94,14 @@ int main(){
 		while(!q2.empty()){
 			t1.push_back(q2.front());
 			q2.pop();
-		}
-		
+		}	
 		while(!q2.empty()){
 			t1.push_back(q2.front());
 			q2.pop();
 		}
-		
-		
-		sort(t1.begin(),t1.end());
-		
-		for(int i=0;i<t1.size();i++)cout<<t1[i]<<" ";
-			
-		
 	
+		sort(t1.begin(),t1.end());		
+		for(int i=0;i<t1.size();i++)cout<<t1[i]<<" ";
 		
 	}
 	
